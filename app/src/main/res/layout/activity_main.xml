@@ -5,15 +5,348 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/sunny_background"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+ <SearchView
+     android:id="@+id/searchView"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_margin="15dp"
+     android:layout_marginTop="32dp"
+     android:background="@drawable/search_view_bg"
+     android:iconifiedByDefault="false"
+     android:padding="5dp"
+     android:queryHint="Search Your City"
+     android:searchIcon="@drawable/search"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintHorizontal_bias="1.0"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toTopOf="parent" />
+
+ <TextView
+     android:id="@+id/city"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="36dp"
+     android:layout_marginEnd="172dp"
+     android:drawablePadding="10dp"
+     app:drawableLeftCompat="@drawable/loctaion"
+     app:layout_constraintEnd_toEndOf="@+id/searchView"
+     app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+ <TextView
+     android:id="@+id/textView3"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="24dp"
+     android:layout_marginEnd="92dp"
+     android:text="TODAY"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/city" />
+
+ <TextView
+     android:id="@+id/tempeture"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="32dp"
+     android:text="00:00 °C"
+     android:textSize="34sp"
+     app:layout_constraintEnd_toEndOf="@+id/textView3"
+     app:layout_constraintHorizontal_bias="0.385"
+     app:layout_constraintStart_toStartOf="@+id/textView3"
+     app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+ <TextView
+     android:id="@+id/weather"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginStart="48dp"
+     android:layout_marginTop="40dp"
+     android:text="Sunny"
+     android:textAllCaps="true"
+     app:layout_constraintBottom_toBottomOf="@+id/tempeture"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/textView3"
+     app:layout_constraintVertical_bias="0.157" />
+
+ <TextView
+     android:id="@+id/maxTemp"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="32dp"
+     android:text="Max : 00:00 °C"
+     app:layout_constraintEnd_toEndOf="@+id/tempeture"
+     app:layout_constraintHorizontal_bias="0.557"
+     app:layout_constraintStart_toStartOf="@+id/tempeture"
+     app:layout_constraintTop_toBottomOf="@+id/tempeture" />
+
+ <TextView
+     android:id="@+id/minTemp"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="16dp"
+     android:text="Min : 00:00 °C"
+     app:layout_constraintEnd_toEndOf="@+id/maxTemp"
+     app:layout_constraintHorizontal_bias="0.0"
+     app:layout_constraintStart_toStartOf="@+id/maxTemp"
+     app:layout_constraintTop_toBottomOf="@+id/maxTemp" />
+
+ <TextView
+     android:id="@+id/day"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="28dp"
+     android:layout_marginEnd="108dp"
+     android:text="Sunday"
+     android:textAllCaps="true"
+     app:layout_constraintEnd_toEndOf="@+id/minTemp"
+     app:layout_constraintHorizontal_bias="0.983"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/minTemp" />
+
+ <TextView
+     android:id="@+id/date"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="16dp"
+     android:text="25 Feb 2023"
+     app:layout_constraintEnd_toEndOf="@+id/day"
+     app:layout_constraintHorizontal_bias="0.48"
+     app:layout_constraintStart_toStartOf="@+id/day"
+     app:layout_constraintTop_toBottomOf="@+id/day" />
+
+ <FrameLayout
+     android:layout_width="match_parent"
+     android:layout_height="220dp"
+     android:layout_marginStart="16dp"
+     android:layout_marginTop="16dp"
+     android:layout_marginEnd="16dp"
+     android:background="@drawable/backgshape"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/date">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+   <androidx.constraintlayout.helper.widget.Flow
+       android:id="@+id/flow2"
+       android:layout_width="0dp"
+       android:layout_height="0dp"
+       android:orientation="horizontal"
+       android:rotation="72"
+       app:constraint_referenced_ids="linearLayout,linearLayout2,linearLayout3,linearLayout4,linearLayout5,linearLayout6"
+       app:flow_maxElementsWrap="3"
+       app:flow_wrapMode="chain"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+   <LinearLayout
+       android:id="@+id/linearLayout"
+       android:layout_width="80dp"
+       android:layout_height="88dp"
+       android:background="@drawable/backgshape"
+       android:gravity="bottom|center_vertical"
+       android:orientation="vertical">
+
+    <ImageView
+
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="5dp"
+        app:srcCompat="@drawable/humidity" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/Humidity"
+        android:text="70" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:text="Humidity"
+        android:textSize="10sp" />
+   </LinearLayout>
+
+   <LinearLayout
+       android:id="@+id/linearLayout2"
+       android:layout_width="80dp"
+       android:layout_height="88dp"
+       android:background="@drawable/backgshape"
+       android:gravity="bottom|center_vertical"
+       android:orientation="vertical">
+
+    <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:srcCompat="@drawable/wind" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="00 : 00"
+        android:id="@+id/windspeed"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:text="Wind Speed"
+        android:textSize="10sp" />
+   </LinearLayout>
+
+   <LinearLayout
+       android:id="@+id/linearLayout3"
+       android:layout_width="80dp"
+       android:layout_height="88dp"
+       android:background="@drawable/backgshape"
+       android:gravity="bottom|center_vertical"
+       android:orientation="vertical">
+
+    <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:srcCompat="@drawable/conditions" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Rain"
+        android:id="@+id/condition"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:text="Condition"
+        android:textSize="10sp" />
+   </LinearLayout>
+
+   <LinearLayout
+       android:id="@+id/linearLayout4"
+       android:layout_width="80dp"
+       android:layout_height="88dp"
+       android:background="@drawable/backgshape"
+       android:gravity="bottom|center_vertical"
+       android:orientation="vertical">
+
+    <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:srcCompat="@drawable/sunrise" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="10054"
+        android:id="@+id/sunrise"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:text="Sunrise"
+        android:textSize="10sp" />
+   </LinearLayout>
+
+   <LinearLayout
+       android:id="@+id/linearLayout5"
+       android:layout_width="80dp"
+       android:layout_height="88dp"
+       android:background="@drawable/backgshape"
+       android:gravity="bottom|center_vertical"
+       android:orientation="vertical">
+
+    <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:srcCompat="@drawable/sunset" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="10540"
+        android:id="@+id/sunset"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:text="Sunset"
+        android:textSize="10sp" />
+   </LinearLayout>
+
+   <LinearLayout
+       android:id="@+id/linearLayout6"
+       android:layout_width="80dp"
+       android:layout_height="88dp"
+       android:background="@drawable/backgshape"
+       android:gravity="bottom|center_vertical"
+       android:orientation="vertical">
+
+    <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:srcCompat="@drawable/sea" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="100"
+        android:id="@+id/seaLevel"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:text="Sea"
+        android:textSize="10sp" />
+
+   </LinearLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+ </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
